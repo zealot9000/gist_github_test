@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
   <h1> <%= post.title %> </h1>
-  <pre><%= Pygments.highlight(post.content, :lexer => 'ruby')%></pre>
+  <pre><%= Pygments.highlight(post.content, :lexer => 'ruby').html_safe %></pre>
     <b> Author: </b>
       <%= post.user.email %>
 <% end %>      
