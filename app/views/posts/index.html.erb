@@ -1,0 +1,14 @@
+<h1>Listing posts</h1>
+
+<% @posts.each do |post| %>
+  <h1> <%= post.title %> </h1>
+  <p>  <%= post.content %> </p>
+  <div>
+    <b> Author: </b>
+      <%= post.user.email %>
+<% end %>      
+
+
+<% if user_signed_in? %>
+<p><%= link_to 'New Post', new_post_path, class: "btn btn-default"%></p>
+<% end %>
