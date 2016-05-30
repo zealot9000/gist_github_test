@@ -4,13 +4,16 @@
 
 <% @posts.each do |post| %>
     <h1> <%= post.title %> </h1>
+    <% if post.title && post.content != nil %>
       <%= Pygments.highlight(post.content, :lexer => 'ruby').html_safe %>
-    <b> Author: </b>
-      <%= post.user.email %>
-  <% if user_signed_in? %>     
-    <p><%= link_to 'Edit', edit_post_path(post), class: "btn btn-default"%>  
-       <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-default"%> 
-  <% end %> 
+        <b> Author: </b>
+          <%= post.user.email %>
+        <b> created at: </b> <%= post.created_at %> 
+    <% end %> 
+    <% if user_signed_in? %>
+       <p><%= link_to 'Edit', edit_post_path(post), class: "btn btn-default"%>  
+           <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-default" %>
+    <% end %> 
 <% end %>     
 
 
