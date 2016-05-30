@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "rails_12factor", group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pygments.rb'
+
+ruby "2.1.2"
