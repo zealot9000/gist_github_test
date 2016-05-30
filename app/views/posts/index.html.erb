@@ -1,13 +1,19 @@
-<h1>Listing posts</h1>
+<% if user_signed_in? %>
+  <p><%= link_to 'New snippet', new_post_path, class: "btn btn-default btn-lg btn-block"%>
+<% end %>
 
 <% @posts.each do |post| %>
-  <h1> <%= post.title %> </h1>
-  <pre><%= Pygments.highlight(post.content, :lexer => 'ruby').html_safe %></pre>
+    <h1> <%= post.title %> </h1>
+      <%= Pygments.highlight(post.content, :lexer => 'ruby').html_safe %>
     <b> Author: </b>
       <%= post.user.email %>
-<% end %>      
+  <% if user_signed_in? %>     
+    <p><%= link_to 'Edit', edit_post_path(post), class: "btn btn-default"%>  
+       <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-default"%> 
+  <% end %> 
+<% end %>     
 
 
 <% if user_signed_in? %>
-<p><%= link_to 'New Post', new_post_path, class: "btn btn-default"%></p>
+  <p><%= link_to 'New snippet', new_post_path, class: "btn btn-default btn-lg btn-block"%>
 <% end %>

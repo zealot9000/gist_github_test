@@ -15,10 +15,10 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
+  <textarea class="form-control" rows="3">
+    <%= f.label :content %>
     <%= f.text_area :content %>
-  </div>
+  </textarea>
   <div class="actions">
     <%= f.submit %>
   </div>
