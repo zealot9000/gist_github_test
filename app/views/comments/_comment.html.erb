@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%= comment.commenter %>    <%= comment.created_at %>  
+</p>
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+</p>
+<p>
+  <%= link_to 'Delete Comment', [comment.post, comment],
+               :confirm => 'Are you sure?',
+               :method => :delete, class: "btn btn-default"%>
+</p>
